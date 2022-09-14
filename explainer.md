@@ -46,15 +46,14 @@ The ICB forms the basis of sizing and positioning for the root element’s box. 
 
 In the visualizations below, the ICB is given a red dashed border.
 
-| ![01.png](./images/01.png) |
-|:--:|
-| _Figure: Visualization of the ICB in Safari on iOS (left), Chrome on Android (center), and Firefox on Android (right)_ |
+>
+> ![01.png](./images/01.png)
+> _Figure: Visualization of the ICB in Safari on iOS (left), Chrome on Android (center), and Firefox on Android (right)_
 
 The size of the ICB is not affected by any dynamic toolbars the browser interface might have. These “dynamic toolbars” are User Agent Interface Elements that expand and retract as you interact with the page.
 
-| ![02.png](./images/02.png) |
-|:--:|
-| _Figure: Visualization of the ICB with contracted UA UI in various browsers. Note that the ICB does not get resized with the dynamic UA UI Elements contracted._ |
+> ![02.png](./images/02.png)
+> _Figure: Visualization of the ICB with contracted UA UI in various browsers. Note that the ICB does not get resized with the dynamic UA UI Elements contracted._
 
 _ℹ️ Note: The ICB does get resized on one occasion: when [classic scrollbars](https://github.com/web-platform-tests/interop-2022-viewport/blob/main/explainers/scrolling.md#classic-scrollbars) are present. This is because the presence of those scrollbars resizes the Viewport. Since the ICB takes its size from that Viewport, it also gets resized. [Overlay Scrollbars](https://github.com/web-platform-tests/interop-2022-viewport/blob/main/explainers/scrolling.md#overlay-scrollbars) do not affect the Viewport nor ICB size._
 
@@ -67,13 +66,11 @@ The values for [Viewport-relative lengths](https://www.w3.org/TR/css-values-4/#v
 
 In the visualizations below, both the Small and Large Viewport Heights are visualized, along with the ICB.
 
-| ![03.png](./images/03.png) |
-|:--:|
-| _Figure: Visualization of the svh and lvh units, with expanded UA UI in various browsers._ |
+> ![03.png](./images/03.png)
+> _Figure: Visualization of the svh and lvh units, with expanded UA UI in various browsers._
 
-| ![04.png](./images/04.png) |
-|:--:|
-| _Figure: Visualization of the svh and lvh units, with contracted UA UI in various browsers._ |
+> ![04.png](./images/04.png)
+> _Figure: Visualization of the svh and lvh units, with contracted UA UI in various browsers._
 
 Not visualized is the Dynamic Viewport, which adapts itself as UA UI Elements expand and/or contract. The value is in the range between the Small Viewport and Large Viewport value.
 
@@ -97,13 +94,11 @@ The size of the Layout Viewport adjusts when UA UI Elements get hidden. Its heig
 
 In the visualizations below the Layout Viewport has been given a blue dashed border, and it also contains two FixedPos elements: one at the top edge and one at the bottom.
 
-| ![05.png](./images/05.png) |
-|:--:|
-| _Figure: Visualization of the Layout Viewport with 2 FixedPos Elements each (one at the top and one at the bottom)_ |
+> ![05.png](./images/05.png)
+> _Figure: Visualization of the Layout Viewport with 2 FixedPos Elements each (one at the top and one at the bottom)_
 
-| ![06.png](./images/06.png) |
-|:--:|
-| _Figure: Visualization of the Layout Viewport with 2 FixedPos Elements each (one at the top and one at the bottom). Note that the Layout Viewport follows the window’s `innerHeight`/`innerWidth`._ |
+> ![06.png](./images/06.png)
+> _Figure: Visualization of the Layout Viewport with 2 FixedPos Elements each (one at the top and one at the bottom). Note that the Layout Viewport follows the window’s `innerHeight`/`innerWidth`._
 
 ### The Visual Viewport
 
@@ -113,10 +108,9 @@ As [per MDN](https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_AP
 
 Initially the Visual Viewport has the same size and position as the Layout Viewport. 
 
-| ![07.png](./images/07.png) |
-|:--:|
-| ![08.png](./images/08.png) |
-| _Figure: Visualization of the Visual Viewport (orange dotted outline). Note how it follows the Layout Viewport (blue dashed outline)._ |
+> ![07.png](./images/07.png)
+> ![08.png](./images/08.png)
+> _Figure: Visualization of the Visual Viewport (orange dotted outline). Note how it follows the Layout Viewport (blue dashed outline)._
 
 Things change though once you pinch-zoom in, or when the Virtual Keyboard gets shown. As [per MDN](https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API):
 
@@ -124,15 +118,13 @@ Things change though once you pinch-zoom in, or when the Virtual Keyboard gets s
 
 When pinch-zooming in, the Visual Viewport shrinks in relation to the Layout Viewport, as it only shows part of the page.
 
-| ![09.png](./images/09.png) |
-|:--:|
-| _Figure: Visualization of the Visual Viewport on a pinch-zoomed page._ |
+> ![09.png](./images/09.png)
+> _Figure: Visualization of the Visual Viewport on a pinch-zoomed page._
 
 When focusing an input, the Visual Viewport shrinks as the OSK gets shown. If the input would be obscured by the OSK, browsers offset the Visual Viewport against the Layout Viewport so that the input remains in view.
 
-| ![10.png](./images/10.png) |
-|:--:|
-| _Figure: Visualization of the Visual Viewport on a page with the OSK shown._ |
+> ![10.png](./images/10.png)
+> _Figure: Visualization of the Visual Viewport on a page with the OSK shown._
 
 The Visual Viewport is well supported by all major browsers:
 
@@ -180,17 +172,14 @@ This difference in how the various Viewports get resized leads to a non-interope
 
 Visualized:
 
-| ![11.png](./images/11.png) |
-|:--:|
-| _Figure: Safari on iOS (left), Google Chrome on Android (center), and Firefox on Android (right) with an expanded UI. The ICB is shown with a red dotted border. The  Viewport Units `100svh` and `100lvh` are also shown._ |
+> ![11.png](./images/11.png)
+> _Figure: Safari on iOS (left), Google Chrome on Android (center), and Firefox on Android (right) with an expanded UI. The ICB is shown with a red dotted border. The  Viewport Units `100svh` and `100lvh` are also show_
 
-| ![12.png](./images/12.png) |
-|:--:|
-| _Figure: On Android (center + right) the LVP+ICB gets resized when the Virtual Keyboard is shown, thereby affecting the *vh units as those units are derived from the ICB’s size. In Safari on iOS (left) this is not the case._ |
+> ![12.png](./images/12.png)
+> _Figure: On Android (center + right) the LVP+ICB gets resized when the Virtual Keyboard is shown, thereby affecting the *vh units as those units are derived from the ICB’s size. In Safari on iOS (left) this is not the case._
 
-| ![13.png](./images/13.png) |
-|:--:|
-| _Figure: Effect on fixed positioning due to the ICB resizing. Take a close look at the dark blue boxes._ |
+> ![13.png](./images/13.png)
+> _Figure: Effect on fixed positioning due to the ICB resizing. Take a close look at the dark blue boxes._
 
 **This difference in behavior can lead to unwanted layout shifts, depending on which layout authors are trying to pursue. Unless authors resort to User-Agent Sniffing or rely on extensive scripting, authors cannot know which behavior is used. They also cannot change the behavior, as it is determined by the browser+platform combination the user is visiting from.**
 
@@ -198,35 +187,30 @@ Visualized:
 
 For some layouts, authors do not want the layout to resize when the Virtual Keyboard gets shown _(e.g. Bottom Navigation Bars)_, while in other cases it is wanted behavior _(e.g. Action Bars, Floating Action Buttons)_.
 
-| ![14a.jpg](./images/14a.jpg) | ![14b.jpg](./images/14b.jpg) |
-|:--:|:--:|
+> | ![14a.jpg](./images/14a.jpg) | ![14b.jpg](./images/14b.jpg) |
+> |-|-|
+>
+> _Figure: Screenshot of **a native application on iOS whose layout adapts itself to the visible space**. Notice how the top bar and bottom bar remain in place, while the center chat area shrinks  when the VirtualKeyboard is shown._
 
-| _Figure: Screenshot of **a native application on iOS whose layout adapts itself to the visible space**. Notice how the top bar and bottom bar remain in place, while the center chat area shrinks  when the Virtual Keyboard is shown._ |
-|:--:|
+> | ![15a.png](./images/15a.png) | ![15b.png](./images/15b.png) |
+> |-|-|
+>
+> _Figure: Screenshot of **a web application in Chrome on Android whose layout adapts itself to the visible space**. This is similar to how the native application behaves. Notice how the top bar and bottom bar remain in place, while the center chat area shrinks when the Virtual Keyboard is shown._
 
-| ![15a.png](./images/15a.png) | ![15b.png](./images/15b.png) |
-|:--:|:--:|
+> | ![16a.jpg](./images/16a.jpg) | ![16b.jpg](./images/16b.jpg) |
+> |-|-|
+>
+> _Figure: Screenshot of **a web application in Safari on iOS whose layout gets shifted up when the Virtual Keyboard is shown**. Note how the top navigation bar of the webapp got shifted out of view._
 
-| _Figure: Screenshot of **a web application in Chrome on Android whose layout adapts itself to the visible space**. This is similar to how the native application behaves. Notice how the top bar and bottom bar remain in place, while the center chat area shrinks when the Virtual Keyboard is shown._ |
-|:--:|
+> | ![17b.jpg](./images/17a.jpg) | ![17b.jpg](./images/17b.jpg) |
+> |-|-|
+>
+> _Figure: Screenshot of **a native application on iOS whose layout adapts itself to the visible space**. Notice how the top bar and bottom bar remain in place, while the center chat area shrinks when the VirtualKeyboard is shown._
 
-| ![16a.jpg](./images/16a.jpg) | ![16b.jpg](./images/16b.jpg) |
-|:--:|:--:|
-
-| _Figure: Screenshot of **a web application in Safari on iOS whose layout gets shifted up when the Virtual Keyboard is shown**. Note how the top navigation bar of the webapp got shifted out of view._ |
-|:--:|
-
-| ![17b.jpg](./images/17a.jpg) | ![17b.jpg](./images/17b.jpg) |
-|:--:|:--:|
-
-| _Figure: Screenshot of **a native application on iOS whose layout adapts itself to the visible space**. Notice how the top bar and bottom bar remain in place, while the center chat area shrinks when the Virtual Keyboard is shown._ |
-|:--:|
-
-| ![18a.jpg](./images/18a.jpg) | ![18b.jpg](./images/18b.jpg) |
-|:--:|:--:|
-
-| _Figure: Screenshot of **a native application on iOS whose layout does not adapt itself to the visible space**. The keyboard does not affect the app layout, and simply overlays the content._ |
-|:--:|
+> | ![18a.jpg](./images/18a.jpg) | ![18b.jpg](./images/18b.jpg) |
+> |-|-|
+>
+> _Figure: Screenshot of **a native application on iOS whose layout does not adapt itself to the visible space**. The keyboard does not affect the app layout, and simply overlays the content._
 
 ## Proposal
 
@@ -246,15 +230,13 @@ Example:
 
 Visualized, the settings have this effect on the various viewports:
 
-| ![19.png](./images/19.png) |
-|:--:|
-| _Figure: The different behaviors and their effect on the ICB (red), Layout Viewport (blue), and Visual Viewport (Orange)_ |
+> ![19.png](./images/19.png)
+> _Figure: The different behaviors and their effect on the ICB (red), Layout Viewport (blue), and Visual Viewport (Orange)_
 
 When no behavior specified – e.g. due to the meta tag not being present – User Agents use their default behavior, whichever it is that they use.
 
-| ![20.png](./images/20.png) |
-|:--:|
-| _Figure: Effect of the proposed behavior, lining up the behavior between Chrome and Safari both on iOS and (not depicted) Android on CrOS_ |
+> ![20.png](./images/20.png)
+> _Figure: Effect of the proposed behavior, lining up the behavior between Chrome and Safari both on iOS and (not depicted) Android on CrOS_
 
 _ℹ️ Note: Through this declarative way of controlling the resize behavior, we would also solve this request for the Virtual Keyboard API_
 
@@ -279,9 +261,8 @@ Using the VirtualKeyboard API with its existing overlaysMode can’t entirely ac
 
 Above that this mode does not resize the Visual Viewport. This, again, in contrast to iOS which does resize the Visual Viewport when the OSK gets shown.
 
-| ![21.png](./images/21.png) |
-|:--:|
-| _Figure: iOS (on the left) resizes the Visual Viewport. When the Virtual Keyboard is set to overlaysContent on Android (on the right) it does not resize the Visual Viewport. One advantage it does give you, is that you can position elements above the OSK using only CSS. The pink box here has `bottom: env(keyboard-inset-height, 0px);` applied._ |
+> ![21.png](./images/21.png)
+> _Figure: iOS (on the left) resizes the Visual Viewport. When the Virtual Keyboard is set to overlaysContent on Android (on the right) it does not resize the Visual Viewport. One advantage it does give you, is that yocan position elements above the OSK using only CSS. The pink box here has `bottom: env(keyboard-inset-height, 0px);` applied._
 
 If we were to pursue this, we would force authors to implement workarounds when working with the Visual Viewport API.
 

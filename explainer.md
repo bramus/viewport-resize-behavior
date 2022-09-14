@@ -144,18 +144,18 @@ While all browsers on all platforms derive the svh/lvh/vh units in the same mann
 We can distinguish two different behaviors:
 
 1. Browsers that resize the Visual Viewport, leaving Layout Viewport untouched:
-  - Safari on iOS
-  - Safari on iPadOS
-  - Chrome on CrOS
-  - Chrome on iOS
-  - Chrome on iPadOS
-  - Edge on iOS
-  - Edge on iPadOS
+    - Safari on iOS
+    - Safari on iPadOS
+    - Chrome on CrOS
+    - Chrome on iOS
+    - Chrome on iPadOS
+    - Edge on iOS
+    - Edge on iPadOS
 2. Browsers that resize both the Visual Viewport and Layout Viewport:
-  - Chrome on Android
-  - Firefox on Android
-  - Edge on Android
-  - Firefox on iOS
+    - Chrome on Android
+    - Firefox on Android
+    - Edge on Android
+    - Firefox on iOS
 
 _ℹ️ Note: The Virtual Keyboard API offers a third behavior: Overlay. In this mode, nothing gets resized when the Virtual Keyboard gets shown. The Visual Viewport and Layout Viewport retain their size._
 

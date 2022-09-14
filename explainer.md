@@ -2,6 +2,34 @@
 
 Authors: [Bramus](https://github.com/bramus/), [David Bokan](https://github.com/bokand), [Robert Flack](https://github.com/flackr), [Anders Hartvoll Ruud](https://github.com/andruud), [Chris Harrelson](https://github.com/chrishtr)
 
+## TOC
+
+- [Status of this document](#status-of-this-document)
+- [Introduction](#introduction)
+- [Key terms](#key-terms)
+  - [The ICB](#the-icb)
+  - [Viewport-Relative Lengths](#viewport-relative-lengths)
+  - [The Layout Viewport](#the-layout-viewport)
+  - [The Visual Viewport](#the-visual-viewport)
+- [Problem Statement](#problem-statement)
+  - [The side-effect of a resized ICB](#the-side-effect-of-a-resized-icb)
+  - [Example Layouts](#example-layouts)
+- [Proposal](#proposal)
+  - [Advantages/Disadvantages](#advantagesdisadvantages)
+- [Alternatives Considered](#alternatives-considered)
+  - [Do nothing](#do-nothing)
+  - [The VirtualKeyboard API with `overlaysMode`](#the-virtualkeyboard-api-with-overlaysmode)
+  - [Force all browsers to use a `resize-visual` behavior with no way of switching](#force-all-browsers-to-use-a-resize-visual-behavior-with-no-way-of-switching)
+  - [A new meta tag](#a-new-meta-tag)
+- [Prior Art and Interesting Links](#prior-art-and-interesting-links)
+  - [Prior Art](#prior-art)
+  - [Interesting Links](#interesting-links)
+- [Privacy and Security Considerations](#privacy-and-security-considerations)
+  - [Privacy](#privacy)
+  - [Security](#security)
+- [Follow-up work](#follow-up-work)
+  - [Allow authors to easily position elements above the Virtual Keyboard when having opted in to the `resize-visual` behavior](#allow-authors-to-easily-position-elements-above-the-virtual-keyboard-when-having-opted-in-to-the-resize-visual-behavior)
+
 ## Status of this document
 
 This document is intended as a starting point for engaging the community and standards bodies in developing collaborative solutions fit for standardization. As the solutions to problems described in this document progress along the standards-track, we will retain this document as an archive and use this section to keep the community up-to-date with the most current standards venue and content location of future work and discussions.

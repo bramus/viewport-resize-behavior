@@ -290,7 +290,7 @@ Using the VirtualKeyboard API with its existing overlaysMode can’t entirely ac
 Above that this mode does not resize the Visual Viewport. This, again, in contrast to iOS which does resize the Visual Viewport when the OSK gets shown.
 
 > ![21.png](./images/21.png)
-> _Figure: iOS (on the left) resizes the Visual Viewport. When the Virtual Keyboard is set to overlaysContent on Android (on the right) it does not resize the Visual Viewport. One advantage it does give you, is that yocan position elements above the OSK using only CSS. The pink box here has `bottom: env(keyboard-inset-height, 0px);` applied._
+> _Figure: iOS (on the left) resizes the Visual Viewport. When the Virtual Keyboard is set to overlaysContent on Android (on the right) it does not resize the Visual Viewport. One advantage it does give you, is that you can position elements above the OSK using only CSS. The pink box here has `bottom: env(keyboard-inset-height, 0px);` applied._
 
 If we were to pursue this, we would force authors to implement workarounds when working with the Visual Viewport API.
 

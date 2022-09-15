@@ -283,16 +283,19 @@ _ℹ️ Note: Through this declarative way of controlling the resize behavior, w
 
 With the upcoming release of new Viewport-relative Units as part of Interop2022, we are aiming for stable and interoperable units for authors to use. This can be achieved by giving them the option to choose a resize behavior, so that they can align the behaviors of all browsers.
 
-### The VirtualKeyboard API with overlaysMode
+### The Virtual Keyboard API with overlaysMode
 
-Using the VirtualKeyboard API with its existing overlaysMode can’t entirely achieve interop here, as in Overlay Mode the OSK obscures part of the page. While the Viewport Units would be stable, the OSK behavior would be different from that on iOS.
+Using the [Virtual Keyboard API](https://github.com/web-platform-tests/interop-2022-viewport/blob/main/explainers/virtual-keyboard-api.md) with its existing `overlaysMode` can’t entirely achieve interop here, as in Overlay Mode the Virtual Keyboard obscures part of the page – authors need to manually offset their layouts using one of the environment variables this API provides. This happens because in `overlaysMode` the Visual Viewport does not get resized. This in contrast to iOS which does resize the Visual Viewport when the Virtual Keyboard gets shown.
 
-Above that this mode does not resize the Visual Viewport. This, again, in contrast to iOS which does resize the Visual Viewport when the OSK gets shown.
+While the Viewport Units would be stable _(due to a non-resized LVP/ICB)_, the Virtual Keyboard behavior would be different from that on iOS.
 
 > ![21.png](./images/21.png)
-> _Figure: iOS (on the left) resizes the Visual Viewport. When the Virtual Keyboard is set to overlaysContent on Android (on the right) it does not resize the Visual Viewport. One advantage it does give you, is that you can position elements above the OSK using only CSS. The pink box here has `bottom: env(keyboard-inset-height, 0px);` applied, a value provided by the Virtual Keyboard API._
+> _Figure: iOS (on the left) resizes the Visual Viewport. When the Virtual Keyboard is set to overlaysContent on Android (on the right) it does not resize the Visual Viewport. One advantage it does give you, is that you can position elements above the Virtual Keyboard using only CSS. The pink box here has `bottom: env(keyboard-inset-height, 0px);` applied, a value provided by the Virtual Keyboard API._
 
-If we were to pursue this, we would force authors to implement workarounds when working with the Visual Viewport API.
+If we were to pursue this, we would force authors to:
+
+- Manually adjust the size of their layouts
+- Implement workarounds when using the Visual Viewport API. 
 
 ### Force all browsers to use a `resize-visual` behavior with no way of switching
 

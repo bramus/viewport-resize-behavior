@@ -185,7 +185,7 @@ We can distinguish two different behaviors:
     - Edge on Android
     - Firefox on iOS
 
-_ℹ️ Note: The Virtual Keyboard API offers a third behavior: Overlay. In this mode, nothing gets resized when the Virtual Keyboard gets shown. The Visual Viewport and Layout Viewport retain their size._
+_ℹ️ Note: The [Virtual Keyboard API](https://github.com/web-platform-tests/interop-2022-viewport/blob/main/explainers/virtual-keyboard-api.md) offers a third behavior: Overlay. In this mode, nothing gets resized when the Virtual Keyboard gets shown. The Visual Viewport and Layout Viewport retain their size._
 
 This difference in how the various Viewports get resized leads to a non-interoperable layout and sizing behavior of websites when the Virtual Keyboard is shown. By resizing the Layout Viewport, the size of the ICB also changes. **In response to the ICB getting resized, the Viewport Units also change.**
 
@@ -290,7 +290,7 @@ Using the VirtualKeyboard API with its existing overlaysMode can’t entirely ac
 Above that this mode does not resize the Visual Viewport. This, again, in contrast to iOS which does resize the Visual Viewport when the OSK gets shown.
 
 > ![21.png](./images/21.png)
-> _Figure: iOS (on the left) resizes the Visual Viewport. When the Virtual Keyboard is set to overlaysContent on Android (on the right) it does not resize the Visual Viewport. One advantage it does give you, is that you can position elements above the OSK using only CSS. The pink box here has `bottom: env(keyboard-inset-height, 0px);` applied._
+> _Figure: iOS (on the left) resizes the Visual Viewport. When the Virtual Keyboard is set to overlaysContent on Android (on the right) it does not resize the Visual Viewport. One advantage it does give you, is that you can position elements above the OSK using only CSS. The pink box here has `bottom: env(keyboard-inset-height, 0px);` applied, a value provided by the Virtual Keyboard API._
 
 If we were to pursue this, we would force authors to implement workarounds when working with the Visual Viewport API.
 

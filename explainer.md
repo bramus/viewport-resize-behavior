@@ -1,6 +1,6 @@
 # Viewport vs Virtual Keyboard Resize Behavior
 
-Authors: [Bramus](https://github.com/bramus/), [David Bokan](https://github.com/bokand), [Robert Flack](https://github.com/flackr), [Anders Hartvoll Ruud](https://github.com/andruud), [Chris Harrelson](https://github.com/chrishtr)
+Authors: [Bramus](https://github.com/bramus/), [David Bokan](https://github.com/bokand), [Robert Flack](https://github.com/flackr), [Anders Hartvoll Ruud](https://github.com/andruud), [Ian Kilpatrick](https://github.com/bfgeek), [Chris Harrelson](https://github.com/chrishtr)
 
 ## TOC
 

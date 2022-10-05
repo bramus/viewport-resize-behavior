@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Viewport Resize Behavior Demos – interactive-widgets - No Value</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../base.css" />
+
+    <script type="module">
+        import * as core from '../../core.js';
+
+        const update = () => {
+            document.body.setAttribute('data-vv-positioning', document.querySelector('[name="vvPosition"]:checked').value);
+
+            const vvv = core.getVisualViewPortValues({
+                clampOffsets: document.querySelectorAll('#vvAdjustValuesByClamping:checked').length > 0,
+                resizeDimensions: document.querySelectorAll('#vvAdjustValuesByResizing:checked').length > 0,
+            });
+            core.syncVisualViewportValuesToCustomProperties(vvv);
+            core.write(vvv, document.querySelector("#vv-values"), 'Visual Viewport');
+
+            const sv = core.getScrollValues();
+            core.write(sv, document.querySelector("#s-values"), 'Scroll');
+
+            const wv = core.getWindowValues();
+            core.write(wv, document.querySelector("#window-values"), 'window');
+        };
+
+        core.init(update);
+    </script>
+</head>
+
+<body translate="no" data-vv-positioning="absolute">
+    <div id="inputwrapper"><input type="text" /></div>
+
+    <div id="debug">
+        <h1>Visual Viewport Debugger</h1>
+        <div id="lv-values"></div>
+        <div id="vv-values"></div>
+        <div id="s-values"></div>
+        <div id="b-values"></div>
+        <div id="window-values"></div>
+        <div id="eventlog"></div>
+    </div>
+
+    <div id="layoutviewport"></div>
+    <div id="visualviewport"></div>
+    <div class="heightdebugger"></div>
+
+    <button id="btnOptions">options</button>
+    <dialog id="options">
+        <header>
+            <button id="btnOptionsClose">close</button>
+            <h1>Options</h1>
+        </header>
+        <section>
+            <h3>Visual Viewport</h3>
+            <p>Some browsers allow negative <code>scrollX</code>/<code>scrollY</code>, and allow the same for the Visual Viewport’s <code>pageTop</code>/<code>pageLeft</code>. This may conflict with positioning the Visual Viewport box, so there’s a few fixes one can apply</p>
+            <div class="option"><input type="radio" id="vvAdjustValuesNo" name="vvAdjustValues" checked /><label for="vvAdjustValuesNo">Do not adjust values when overscrolling</label></div>
+            <div class="option"><input type="radio" id="vvAdjustValuesByClamping" name="vvAdjustValues" /><label for="vvAdjustValuesByClamping">Clamp values between 0 and max scroll when overscrolling</label></div>
+            <div class="option"><input type="radio" id="vvAdjustValuesByResizing" name="vvAdjustValues" /><label for="vvAdjustValuesByResizing">Shrink height/width when overscrolling</label></div>
+            <p>Positioning method to use</p>
+            <div class="option"><input type="radio" id="vvPositionAbsolute" name="vvPosition" value="absolute" checked /><label for="vvPositionAbsolute"><code>position: absolute;</code></label></div>
+            <div class="option"><input type="radio" id="vvPositionFixed" name="vvPosition" value="fixed" /><label for="vvPositionFixed"><code>position: fixed;</code></label></div>
+        </section>
+    </dialog>
+</body>
+</html>

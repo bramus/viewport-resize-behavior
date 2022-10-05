@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Viewport Resize Behavior Demos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="base.css" />
+    <style>
+        body {
+            display: flex;
+        }
+
+        main {
+            max-width: 80ch;
+            width: 90%;
+            margin: 0 auto;
+            background: rgb(255 255 255 / 0.5);
+			border: 1px solid rgb(0 0 0 / 0.2);
+            padding: 1rem;
+			margin: 3rem auto;
+        }
+    </style>
+    <script type="module">
+        import * as core from './core.js';
+
+        const update = () => {
+            document.body.setAttribute('data-vv-positioning', document.querySelector('[name="vvPosition"]:checked')?.value ?? 'absolute');
+
+            const vvv = core.getVisualViewPortValues({
+                clampOffsets: true,
+            });
+            core.syncVisualViewportValuesToCustomProperties(vvv);
+        };
+
+        core.init(update);
+    </script>
+</head>
+<body translate="no" data-vv-positioning="absolute">
+    <main>
+        <h1>Viewport Resize Behavior Demos</h1>
+
+        <p>Set of demo pages that use the <code>interactive-widgets</code> viewport meta tag extension with its different values.</p>
+
+        <h2>Demos</h2>
+
+        <ol>
+            <li><a href="interactive-widgets/no-value/">no value set</a></li>
+            <li><a href="interactive-widgets/resize-visual/">interactive-widgets=resize-visual</a></li>
+            <li><a href="interactive-widgets/resize-layout/">interactive-widgets=resize-layout</a></li>
+            <li><a href="interactive-widgets/overlays-content/">interactive-widgets=overlays-content</a></li>
+        </ol>
+
+		<h2>Legend</h2>
+		<ul>
+			<li>Red dashed line = ICB</li>
+			<li>Blue dotted line = Layout Viewport</li>
+			<li>Orange slanted line = Visual Viewport</li>
+		</ul>
+    </main>
+
+    <div id="visualviewport"></div>
+    <div id="layoutviewport"></div>
+
+    <div class="heightdebugger"></div>
+</body>

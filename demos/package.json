@@ -1,0 +1,19 @@
+{
+  "name": "viewport-resize-behavior-demos",
+  "version": "1.0.0",
+  "description": "Set of demo pages that use the `interactive-widgets` viewport meta tag extension with its different values",
+  "scripts": {
+    "start": "serve src",
+	"deploy": "netlify deploy --prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "viewports",
+    "interop2022"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^14.0.1"
+  }
+}

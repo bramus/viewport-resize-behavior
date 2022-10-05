@@ -57,7 +57,7 @@ Depending on which behavior a User Agent + Platform combination a visitor uses, 
 This document proposes an extension the viewport meta tag so that authors get to opt in to any of those behaviors in a declarative manner.
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0, virtual-keyboard=overlays-content">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widgets=overlays-content">
 ```
 
 This way, authors get to control which behavior a User Agent uses.
@@ -244,16 +244,16 @@ For some layouts, authors do not want the layout to resize when the Virtual Keyb
 
 To switch Virtual Keyboard behaviors, authors can use an extra key-value pair the viewport meta tag. That way, they get to control the resize behavior of the various Viewports in case the Virtual Keyboard gets shown.
 
-The key is `virtual-keyboard`, and it accepts one of these three values:
+The key is `interactive-widgets`, and it accepts one of these three values:
 
-1. `resize-visual` = Resize only the Visual Viewport
+1. `resize-visual` = Resize only the Visual Viewport but not the Layout Viewport
 2. `resize-layout` = Resize both the Visual Viewport and Layout Viewport
 3. `overlays-content` = Do not resize any viewport
 
 Example:
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0, virtual-keyboard=overlays-content">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widgets=overlays-content">
 ```
 
 Visualized, the settings have this effect on the various viewports:
@@ -308,7 +308,7 @@ As outlined in the examples, it sometimes is necessary to have a layout that ada
 Instead of opting for a standalone meta tag, we chose to extend the existing viewport one, as this all is linked to the (resize) behavior of the viewport.
 
 ```html
-<meta name="virtual-keyboard" content="overlays-content">
+<meta name="interactive-widgets" content="overlays-content">
 ```
 
 ## Prior Art and Interesting Links

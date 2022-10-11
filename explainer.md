@@ -19,7 +19,7 @@ Authors: [Bramus](https://github.com/bramus/), [David Bokan](https://github.com/
 - [Alternatives Considered](#alternatives-considered)
   - [Do nothing](#do-nothing)
   - [The VirtualKeyboard API with `overlaysMode`](#the-virtualkeyboard-api-with-overlaysmode)
-  - [Force all browsers to use a `resize-visual` behavior with no way of switching](#force-all-browsers-to-use-a-resize-visual-behavior-with-no-way-of-switching)
+  - [Force all browsers to use a `resizes-visual` behavior with no way of switching](#force-all-browsers-to-use-a-resizes-visual-behavior-with-no-way-of-switching)
   - [A new meta tag](#a-new-meta-tag)
 - [Prior Art and Interesting Links](#prior-art-and-interesting-links)
   - [Prior Art](#prior-art)
@@ -28,7 +28,7 @@ Authors: [Bramus](https://github.com/bramus/), [David Bokan](https://github.com/
   - [Privacy](#privacy)
   - [Security](#security)
 - [Follow-up work](#follow-up-work)
-  - [Allow authors to easily position elements above the Virtual Keyboard when having opted in to the `resize-visual` behavior](#allow-authors-to-easily-position-elements-above-the-virtual-keyboard-when-having-opted-in-to-the-resize-visual-behavior)
+  - [Allow authors to easily position elements above the Virtual Keyboard when having opted in to the `resizes-visual` behavior](#allow-authors-to-easily-position-elements-above-the-virtual-keyboard-when-having-opted-in-to-the-resizes-visual-behavior)
 
 ## Status of this document
 
@@ -57,7 +57,7 @@ Depending on which behavior a User Agent + Platform combination a visitor uses, 
 This document proposes an extension the viewport meta tag so that authors get to opt in to any of those behaviors in a declarative manner.
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widgets=overlays-content">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=overlays-content">
 ```
 
 This way, authors get to control which behavior a User Agent uses.
@@ -244,16 +244,16 @@ For some layouts, authors do not want the layout to resize when the Virtual Keyb
 
 To switch Virtual Keyboard behaviors, authors can use an extra key-value pair the viewport meta tag. That way, they get to control the resize behavior of the various Viewports in case the Virtual Keyboard gets shown.
 
-The key is `interactive-widgets`, and it accepts one of these three values:
+The key is `interactive-widget`, and it accepts one of these three values:
 
-1. `resize-visual` = Resize only the Visual Viewport but not the Layout Viewport
-2. `resize-layout` = Resize both the Visual Viewport and Layout Viewport
+1. `resizes-visual` = Resize only the Visual Viewport but not the Layout Viewport
+2. `resizes-content` = Resize both the Visual Viewport and Layout Viewport
 3. `overlays-content` = Do not resize any viewport
 
 Example:
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widgets=overlays-content">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=overlays-content">
 ```
 
 Visualized, the settings have this effect on the various viewports:
@@ -274,7 +274,7 @@ _ℹ️ Note: Through this declarative way of controlling the resize behavior, w
 - ✅ Authors can opt-in to any of the behaviors, not being bound to what the platform + browser combination their visitors are on uses as a default.
 - ✅ When an author opts in to a certain behavior, they know that elements sized to Viewport-Relative Units –amongst others– will work in a similar way on each platform, in case the Virtual Keyboard is shown.
 - ✅ When an author opts in to a certain behavior, they know that the position of certain elements will behave in a similar way on each platform, in case the Virtual Keyboard is shown.
-- ❌ If authors have opted in to resize-visual but want to retain a fixed positioning behavior where they want to an element above the Virtual Keyboard, they need to resort to JS to achieve this
+- ❌ If authors have opted in to resizes-visual but want to retain a fixed positioning behavior where they want to an element above the Virtual Keyboard, they need to resort to JS to achieve this
   - This workaround is already needed today for browsers that do not resize the ICB
 
 ## Alternatives Considered
@@ -297,9 +297,9 @@ If we were to pursue this, we would force authors to:
 - Manually adjust the size of their layouts
 - Implement workarounds when using the Visual Viewport API. 
 
-### Force all browsers to use a `resize-visual` behavior with no way of switching
+### Force all browsers to use a `resizes-visual` behavior with no way of switching
 
-Right now Chrome on Android uses the `resize-layout` behavior. Changing it to resize-visual with no way back could potentially break a lot of sites that did not expect this change.
+Right now Chrome on Android uses the `resizes-content` behavior. Changing it to resizes-visual with no way back could potentially break a lot of sites that did not expect this change.
 
 As outlined in the examples, it sometimes is necessary to have a layout that adapts itself to the visible space, whereas sometimes it is not. By forcing one behavior without offering a switch, authors are limited in what they can do.
 
@@ -308,7 +308,7 @@ As outlined in the examples, it sometimes is necessary to have a layout that ada
 Instead of opting for a standalone meta tag, we chose to extend the existing viewport one, as this all is linked to the (resize) behavior of the viewport.
 
 ```html
-<meta name="interactive-widgets" content="overlays-content">
+<meta name="interactive-widget" content="overlays-content">
 ```
 
 ## Prior Art and Interesting Links
@@ -340,8 +340,8 @@ There is no known security impact of this feature.
 
 ## Follow-up work
 
-### Allow authors to easily position elements above the Virtual Keyboard when having opted in to the `resize-visual` behavior
+### Allow authors to easily position elements above the Virtual Keyboard when having opted in to the `resizes-visual` behavior
 
-Should authors want to keep the  “old” positioning behavior while opting into resize-visual, they can resort to the Visual Viewport API which offers them JS access to the Visual Viewport’s dimensions and position. Combined with the dimensions of the non-resized Layout Viewport and a few resize events, elements can be guaranteed to appear above the OSK, just like they did before.
+Should authors want to keep the  “old” positioning behavior while opting into resizes-visual, they can resort to the Visual Viewport API which offers them JS access to the Visual Viewport’s dimensions and position. Combined with the dimensions of the non-resized Layout Viewport and a few resize events, elements can be guaranteed to appear above the OSK, just like they did before.
 
 They could use the Visual Viewport API for this, but that [is a bit cumbersome and relies on JavaScript](https://interop-2022-viewport.netlify.app/combined/icb-fixed-visual/). To tackle this at the CSS level, there is [an issue at the CSS Working Group which would give authors a pure CSS way of achieving this](https://github.com/w3c/csswg-drafts/issues/7475).

@@ -1,6 +1,6 @@
 # Viewport Resize Behavior Demos
 
-Set of demo pages that use the `interactive-widgets` viewport meta tag extension with its different values.
+Set of demo pages that use the `interactive-widget` viewport meta tag extension with its different values.
 
 View online: https://viewport-resize-behavior.netlify.app/
 

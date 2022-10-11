@@ -1,7 +1,7 @@
 {
   "name": "viewport-resize-behavior-demos",
   "version": "1.0.0",
-  "description": "Set of demo pages that use the `interactive-widgets` viewport meta tag extension with its different values",
+  "description": "Set of demo pages that use the `interactive-widget` viewport meta tag extension with its different values",
   "scripts": {
     "start": "serve src",
 	"deploy": "netlify deploy --prod",

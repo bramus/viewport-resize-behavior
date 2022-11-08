@@ -24,6 +24,9 @@
 
             const wv = core.getWindowValues();
             core.write(wv, document.querySelector("#window-values"), 'window');
+
+            const icbv = core.getICBValues();
+            core.write(icbv, document.querySelector("#icb-values"), 'icb (document.documentElement)');
         };
 
         core.init(update);
@@ -35,6 +38,7 @@
 
     <div id="debug">
         <h1>Visual Viewport Debugger</h1>
+        <div id="icb-values"></div>
         <div id="lv-values"></div>
         <div id="vv-values"></div>
         <div id="s-values"></div>
